@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="contact_main_vew" model="ir.ui.view">
+        <field name="name">contact.main_view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[2]/field[5]" position="after">
+                <field name="email_groups"/>
+                <field name="email_contacts" attrs="{'invisible': [('email_groups', '=', False)]}"/>
+            </xpath>
+
+
+        </field>
+    </record>
+</odoo>

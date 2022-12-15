@@ -15,3 +15,7 @@ class ResPartnerExtension(models.Model):
 
     email_contacts = fields.Many2many('res.partner','email_tags',
     string='Email Contacts',column1='id', column2="id2")
+
+    credit_limit = fields.Integer(string='Credit limit', default=0)
+
+    email_groups = fields.Boolean(string='Email Group')

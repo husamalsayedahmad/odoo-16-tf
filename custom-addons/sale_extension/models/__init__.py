@@ -1,0 +1,1 @@
+from .sale_extension import SaleOrder

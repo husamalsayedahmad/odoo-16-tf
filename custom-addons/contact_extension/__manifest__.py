@@ -8,8 +8,9 @@
     'depends': ['contacts', 'stock'],
     'data': [
             'security/security.xml',
-             'views/sales_and_purchase.xml',
-            'views/purchase_tab.xml'
+            'views/sales_and_purchase.xml',
+            'views/purchase_tab.xml',
+            'views/main_view.xml'
     ],
     'installable': True,
     'application': False,

@@ -7,6 +7,7 @@
     'category': 'Productivity',
     'depends': ['sale', 'mail'],
     'data': [
+        "views/sale_order_extension.xml"
     ],
     'installable': True,
     'application': False,
