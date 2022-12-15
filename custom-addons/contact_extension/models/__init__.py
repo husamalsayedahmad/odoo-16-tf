@@ -1,0 +1,1 @@
+from .res_partner_extension import ResPartnerExtension

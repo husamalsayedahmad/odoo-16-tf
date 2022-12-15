@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="contact_main_screen" model="ir.ui.view">
+        <field name="name">contact.maininfo</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+<!--            This Expression is the Address in the contact page-->
+            <xpath expr="//span[@class='o_form_label o_td_label'][1]" position="before">
+                <field name="id" string="ID"/>
+            </xpath>
+<!--            -->
+            <field name="vat" position="after">
+                <field name="account_type"/>
+            </field>
+
+
+        </field>
+    </record>
+</odoo>
