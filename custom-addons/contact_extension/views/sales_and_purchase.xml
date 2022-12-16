@@ -13,8 +13,10 @@
             <field name="vat" position="after">
                 <field name="account_type"/>
             </field>
-
-
+<!--    This field expression is the company registry-->
+            <field name="company_registry" position="after">
+                <field name="preferred_warehouse"/>
+            </field>
         </field>
     </record>
 </odoo>
