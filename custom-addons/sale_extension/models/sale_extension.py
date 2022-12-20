@@ -3,12 +3,11 @@ from odoo.exceptions import ValidationError
 
 
 fulfillment_type_selection = [('warehouse', 'Warehouse'),
-                              ('factory/container_Order', 'Factory/Container Order')]
+                              ('factory/container_order', 'Factory/Container Order')]
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
     override_credit_limit = fields.Boolean(string = 'Override Credit Limit')
     fulfillment_type = fields.Selection(fulfillment_type_selection, default='warehouse')
-
     def action_confirm(self):
         has_credit_limit_permission = \
             self.env.user.has_group('contact_extension.group_credit_limit')

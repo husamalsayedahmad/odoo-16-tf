@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_order_extension" model="ir.ui.view">
+        <field name="name">sale_order.credit_limit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[17]" position="after">
+                <field name="total_weight" sum="Total weight"/>
+                <field name="total_volume" sum="Total Volume"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

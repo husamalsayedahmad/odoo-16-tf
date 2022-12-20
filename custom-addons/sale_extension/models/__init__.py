@@ -1,1 +1,2 @@
 from .sale_extension import SaleOrder
+from .sale_order_line_extension import SaleOrderLine

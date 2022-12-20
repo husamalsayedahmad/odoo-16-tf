@@ -1,0 +1,1 @@
+from .stock_move_line import StockMoveLine
