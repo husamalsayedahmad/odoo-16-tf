@@ -1,4 +1,6 @@
 from odoo import models, api, fields
+import logging
+_logger = logging.getLogger(__name__)
 
 preferred_billing_communication_selection = [('by_email', 'By Email'),
                                              ('by_post','By Post')]
@@ -19,3 +21,17 @@ class ResPartnerExtension(models.Model):
     credit_limit = fields.Integer(string='Credit limit', default=0)
 
     email_groups = fields.Boolean(string='Email Group')
+
+    @api.onchange('preferred_warehouse')
+    def change_reference_number(self):
+        print(f'the warehouse is', self.preferred_warehouse)
+        if self.id != False and self.preferred_warehouse:
+            self.ref = f'{self.preferred_warehouse.code}{self.id}'
+        else:
+            self.ref = ''
+
+    @api.model
+    def create(self, values_list):
+        print('the values list are' ,values_list)
+        return super(ResPartnerExtension, self).create(values_list)
+

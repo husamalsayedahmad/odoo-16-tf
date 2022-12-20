@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sale_container_order" model="ir.actions.act_window">
+        <field name="name">Container Order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('state','in',['draft','sent','cancel']),('fulfillment_type','=','factory/container_order')]</field>
+        <field name="context">{'default_fulfillment_type': 'factory/container_order'}</field>
+
+    </record>
+
+    <record id="sale_container_quotation" model="ir.actions.act_window">
+        <field name="name">Quotation Order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('state','in',['done','sale']),('fulfillment_type','=','factory/container_order')]</field>
+        <field name="context">{'default_fulfillment_type': 'factory/container_order'}</field>
+    </record>
+
+    <record id="sale_container_customer" model="ir.actions.act_window">
+        <field name="name">Customer</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+    <menuitem id="menu_container"
+              name="Container Orders"
+              parent="sale.sale_menu_root"
+              sequence="7"
+              groups="sales_team.group_sale_manager"/>
+
+     <menuitem id="menu_container_quotations"
+              name="Container Quotations"
+              parent="menu_container"
+              sequence="0"
+              groups="sales_team.group_sale_manager"
+     action="sale_container_quotation"/>
+
+    <menuitem id="menu_container_orders"
+              name="Container Orders"
+              parent="menu_container"
+              sequence="1"
+              groups="sales_team.group_sale_manager"
+    action="sale_container_order"/>
+
+    <menuitem id="menu_customer"
+              name="Customer"
+              parent="menu_container"
+              sequence="2"
+              groups="sales_team.group_sale_manager"
+    action="contacts.action_contacts"/>
+</odoo>
